@@ -6,8 +6,8 @@
 
 ### Practice LeetCode the way a real on-site interview feels
 
-_A Chrome (Manifest V3) extension that strips the gamified meta-indicators from
-LeetCode — difficulty badges, acceptance stats, topic tags, and social metrics —
+_A Chrome extension that strips the gamified meta-indicators from
+LeetCode (difficulty badges, acceptance stats, topic tags, and social metrics)
 so all that's left is the problem, the constraints, and your reasoning._
 
 <p>
