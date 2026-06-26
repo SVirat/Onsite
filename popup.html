@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onsite</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app" aria-busy="true">
+      <!-- Header -->
+      <header class="app__header">
+        <div class="brand">
+          <img
+            class="brand__mark"
+            src="assets/onsite.png"
+            alt="Onsite logo"
+            width="34"
+            height="34"
+          />
+          <div class="brand__text">
+            <h1 class="brand__title">Onsite</h1>
+            <p class="brand__subtitle">Interview Mode Engine</p>
+          </div>
+        </div>
+
+        <!-- Master switch -->
+        <label class="switch" title="Enable or disable the entire engine">
+          <input type="checkbox" id="modeEnabled" />
+          <span class="switch__track"><span class="switch__thumb"></span></span>
+        </label>
+      </header>
+
+      <!-- Blindfold settings -->
+      <section class="card" aria-labelledby="blindfolds-title">
+        <h2 class="card__title" id="blindfolds-title">Blindfolds</h2>
+
+        <div class="option" data-feature="FE-01">
+          <div class="option__text">
+            <span class="option__label">Difficulty</span>
+            <span class="option__hint">Hide Easy / Medium / Hard badges</span>
+          </div>
+          <label class="switch switch--sm">
+            <input type="checkbox" id="hideDifficulty" />
+            <span class="switch__track"><span class="switch__thumb"></span></span>
+          </label>
+        </div>
+
+        <div class="option" data-feature="FE-02">
+          <div class="option__text">
+            <span class="option__label">Acceptance &amp; Stats</span>
+            <span class="option__hint">Hide acceptance rate &amp; submissions</span>
+          </div>
+          <label class="switch switch--sm">
+            <input type="checkbox" id="hideAcceptance" />
+            <span class="switch__track"><span class="switch__thumb"></span></span>
+          </label>
+        </div>
+
+        <div class="option" data-feature="FE-04">
+          <div class="option__text">
+            <span class="option__label">Social Metrics</span>
+            <span class="option__hint">Hide solution counts, votes &amp; replies</span>
+          </div>
+          <label class="switch switch--sm">
+            <input type="checkbox" id="hideSocialMetrics" />
+            <span class="switch__track"><span class="switch__thumb"></span></span>
+          </label>
+        </div>
+
+        <div class="option" data-feature="FE-05">
+          <div class="option__text">
+            <span class="option__label">Topics</span>
+            <span class="option__hint">Hide topic tags &amp; the Topics section</span>
+          </div>
+          <label class="switch switch--sm">
+            <input type="checkbox" id="hideTopics" />
+            <span class="switch__track"><span class="switch__thumb"></span></span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Interview timer -->
+      <section class="card" aria-labelledby="focus-title">
+        <h2 class="card__title" id="focus-title">Interview Timer</h2>
+
+        <div class="option">
+          <div class="option__text">
+            <span class="option__label">Interview Timer</span>
+            <span class="option__hint">Show a countdown overlay</span>
+          </div>
+          <label class="switch switch--sm">
+            <input type="checkbox" id="timerEnabled" />
+            <span class="switch__track"><span class="switch__thumb"></span></span>
+          </label>
+        </div>
+
+        <div class="option option--inset" id="timerDurationRow">
+          <div class="option__text">
+            <span class="option__label">Duration</span>
+            <span class="option__hint">Minutes per problem</span>
+          </div>
+          <div class="stepper">
+            <input
+              type="number"
+              id="timerDuration"
+              min="1"
+              max="240"
+              step="1"
+              inputmode="numeric"
+              aria-label="Timer duration in minutes"
+            />
+            <span class="stepper__unit">min</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Run limit -->
+      <section class="card" aria-labelledby="runlimit-title">
+        <h2 class="card__title" id="runlimit-title">Run Limit</h2>
+
+        <div class="option">
+          <div class="option__text">
+            <span class="option__label">Code runs allowed</span>
+            <span class="option__hint">Cap Run presses before you must Submit</span>
+          </div>
+          <label class="switch switch--sm">
+            <input type="checkbox" id="runLimitEnabled" />
+            <span class="switch__track"><span class="switch__thumb"></span></span>
+          </label>
+        </div>
+
+        <div class="option option--inset" id="runLimitMaxRow">
+          <div class="option__text">
+            <span class="option__label">Max runs</span>
+            <span class="option__hint">Runs allowed per problem (1–10)</span>
+          </div>
+          <div class="stepper">
+            <input
+              type="number"
+              id="runLimitMax"
+              min="1"
+              max="10"
+              step="1"
+              inputmode="numeric"
+              aria-label="Maximum code runs allowed"
+            />
+            <span class="stepper__unit">runs</span>
+          </div>
+        </div>
+      </section>
+
+      <footer class="app__footer">
+        <span class="status" id="status" role="status" aria-live="polite"></span>
+      </footer>
+
+      <p class="app__share">
+        <a
+          href="https://chromewebstore.google.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Share</a
+        >
+        us with your friends!
+      </p>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

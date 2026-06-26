@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Onsite - Practice in real interview settings",
+  "version": "1.0.0",
+  "description": "Enterprise Interview Mode Engine: strips difficulty, acceptance rate, company tags, and social metrics from LeetCode for low-bias, authentic interview practice.",
+  "permissions": ["storage"],
+  "icons": {
+    "16": "assets/onsite.png",
+    "32": "assets/onsite.png",
+    "48": "assets/onsite.png",
+    "128": "assets/onsite.png"
+  },
+  "host_permissions": [
+    "https://leetcode.com/*",
+    "https://*.leetcode.com/*",
+    "https://leetcode.cn/*",
+    "https://*.leetcode.cn/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Onsite",
+    "default_icon": {
+      "16": "assets/onsite.png",
+      "32": "assets/onsite.png",
+      "48": "assets/onsite.png",
+      "128": "assets/onsite.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://leetcode.com/*",
+        "https://*.leetcode.com/*",
+        "https://leetcode.cn/*",
+        "https://*.leetcode.cn/*"
+      ],
+      "js": ["scripts/content.js"],
+      "css": ["scripts/styles.css"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ]
+}

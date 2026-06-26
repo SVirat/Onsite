@@ -1,0 +1,302 @@
+/* =============================================================================
+ * Onsite — Popup styling
+ * A compact, modern, LIGHT control panel themed with LeetCode's signature gold
+ * (#FFA116). Uses CSS custom properties so the palette is defined once and
+ * reused across every component.
+ * ========================================================================== */
+
+:root {
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --surface-2: #f0f1f3;
+  --border: #e7e8eb;
+  --text: #262626;
+  --text-dim: #8a8f99;
+  --accent: #ffa116; /* LeetCode signature gold */
+  --accent-strong: #ef8e00; /* darker gold for gradients & hovers */
+  --accent-glow: rgba(255, 161, 22, 0.28);
+  --success: #00b8a3; /* LeetCode "Easy" green */
+  --track-off: #d8dade;
+  --radius: 12px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+/* Dark theme — mirrors LeetCode's dark mode (darker greys, same gold accent). */
+:root[data-theme='dark'] {
+  --bg: #1a1a1a;
+  --surface: #282828;
+  --surface-2: #303030;
+  --border: #3a3a3a;
+  --text: #eff1f6;
+  --text-dim: #888d96;
+  --track-off: #4a4a4a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  width: 320px;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px;
+}
+
+/* When the engine is disabled, dim the feature cards. */
+.app.is-disabled .card {
+  opacity: 0.45;
+  pointer-events: none;
+  filter: grayscale(0.4);
+}
+
+/* -----------------------------------------------------------------------------
+ * Header & brand
+ * -------------------------------------------------------------------------- */
+.app__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand__mark {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  border-radius: 9px;
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+.brand__title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.brand__subtitle {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+/* -----------------------------------------------------------------------------
+ * Cards & options
+ * -------------------------------------------------------------------------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 6px 12px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.card__title {
+  margin: 10px 2px 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-dim);
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 2px;
+  border-top: 1px solid var(--border);
+}
+
+.option:first-of-type {
+  border-top: none;
+}
+
+.option--inset {
+  padding-left: 10px;
+  margin-left: 2px;
+  border-top: 1px dashed var(--border);
+}
+
+.option__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.option__label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.option__hint {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+/* Collapse the duration row when the timer is off. */
+.option--inset.is-hidden {
+  display: none;
+}
+
+/* -----------------------------------------------------------------------------
+ * Toggle switch
+ * -------------------------------------------------------------------------- */
+.switch {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+.switch__track {
+  position: relative;
+  display: block;
+  width: 44px;
+  height: 26px;
+  background: var(--track-off);
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.switch__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.switch input:checked + .switch__track {
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.switch input:checked + .switch__track .switch__thumb {
+  transform: translateX(18px);
+}
+
+.switch input:focus-visible + .switch__track {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Small variant for per-feature rows. */
+.switch--sm .switch__track {
+  width: 38px;
+  height: 22px;
+}
+
+.switch--sm .switch__thumb {
+  width: 16px;
+  height: 16px;
+}
+
+.switch--sm input:checked + .switch__track .switch__thumb {
+  transform: translateX(16px);
+}
+
+/* -----------------------------------------------------------------------------
+ * Number stepper
+ * -------------------------------------------------------------------------- */
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+.stepper input {
+  width: 44px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: right;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.stepper__unit {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+/* -----------------------------------------------------------------------------
+ * Footer
+ * -------------------------------------------------------------------------- */
+.app__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  min-height: 0;
+}
+
+.status {
+  font-size: 11px;
+  color: var(--success);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.status.is-visible {
+  opacity: 1;
+}
+
+.app__share {
+  margin: -6px 0 0;
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.app__share a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.app__share a:hover {
+  text-decoration: underline;
+}
