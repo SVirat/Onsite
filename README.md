@@ -29,14 +29,14 @@ your code before submitting and running a draggable interview countdown timer.
 
 ## Features
 
-| ID | Feature | What it does |
-| --- | --- | --- |
-| FE-01 | **Difficulty Blindfold** | Hides Easy / Medium / Hard badges and their color coding. |
-| FE-02 | **Acceptance & Stats** | Hides the Accepted / Submissions / Acceptance Rate block. |
-| FE-04 | **Social Cleanse** | Hides solution counts, upvotes/downvotes, and discussion replies. |
-| FE-05 | **Topics Blindfold** | Hides the Topics section/accordion and topic-tag filter chips. |
-| — | **Run Limit** | Caps how many times you can Run before you must Submit. |
-| — | **Interview Timer** | Optional countdown overlay with manual Start / Pause / Reset. |
+| Feature | What it does |
+| --- | --- |
+| **Difficulty Blindfold** | Hides Easy / Medium / Hard badges and their color coding. |
+| **Acceptance & Stats** | Hides the Accepted / Submissions / Acceptance Rate block. |
+| **Social Cleanse** | Hides solution counts, upvotes/downvotes, and discussion replies. |
+| **Topics Blindfold** | Hides the Topics section/accordion and topic-tag filter chips. |
+| **Run Limit** | Caps how many times you can Run before you must Submit. |
+| **Interview Timer** | Optional countdown overlay with manual Start / Pause / Reset. |
 
 All features toggle independently from the popup, with a master on/off switch.
 
