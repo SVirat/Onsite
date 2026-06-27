@@ -6,6 +6,8 @@
 
 ### Practice LeetCode the way a real on-site interview feels
 
+</div>
+
 _A Chrome extension that strips the gamified meta-indicators from
 LeetCode (difficulty badges, acceptance stats, topic tags, and social metrics)
 so all that's left is the problem, the constraints, and your reasoning._
@@ -14,10 +16,10 @@ so all that's left is the problem, the constraints, and your reasoning._
   <img alt="Manifest V3" src="https://img.shields.io/badge/Manifest-V3-FFA116?style=flat-square" />
   <img alt="Platform" src="https://img.shields.io/badge/Platform-Chromium-FF8A00?style=flat-square" />
   <img alt="Permissions" src="https://img.shields.io/badge/Permissions-storage%20only-00B8A3?style=flat-square" />
-  <img alt="Version" src="https://img.shields.io/badge/Version-1.0.0-FF375F?style=flat-square" />
+  <img alt="Version" src="https://img.shields.io/badge/Version-1.0.1-FF375F?style=flat-square" />
 </p>
 
-</div>
+
 
 ---
 
