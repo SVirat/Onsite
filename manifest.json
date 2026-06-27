@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Onsite - Practice in real interview settings",
   "version": "1.0.1",
-  "description": "Enterprise Interview Mode Engine: strips details from LeetCode for low-bias, authentic interview practice.",
+  "description": "Interview Mode Engine: strips details from LeetCode for low-bias, authentic interview practice.",
   "permissions": ["storage"],
   "icons": {
     "16": "assets/onsite.png",
